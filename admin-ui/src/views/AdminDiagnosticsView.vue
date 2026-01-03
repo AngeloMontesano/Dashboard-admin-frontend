@@ -91,7 +91,8 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
-import { getBaseURL, platformHealth, platformHealthDb } from "../api/platform";
+import { platformHealth, platformHealthDb } from "../api/platform";
+import { getBaseURL } from "../api/base";
 import { adminPing, adminDiagnostics } from "../api/admin";
 import { useToast } from "../composables/useToast";
 
