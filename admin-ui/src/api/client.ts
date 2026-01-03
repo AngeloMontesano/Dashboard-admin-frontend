@@ -1,12 +1,12 @@
 import axios from "axios";
-import { getBaseURL } from "./platform";
+import { getBaseURL } from "./base";
 
 /*
   Zentraler API Client.
   Admin Key niemals loggen.
 */
 
-export function apiClient(adminKey: string, adminActor?: string) {
+export function apiClient(adminKey: string, actor?: string) {
   const baseURL = getBaseURL();
 
   return axios.create({
@@ -14,7 +14,7 @@ export function apiClient(adminKey: string, adminActor?: string) {
     timeout: 15000,
     headers: {
       "X-Admin-Key": adminKey,
-      ...(adminActor ? { "X-Admin-Actor": adminActor } : {}),
+      ...(actor ? { "X-Admin-Actor": actor } : {}),
       "Content-Type": "application/json",
     },
   });
